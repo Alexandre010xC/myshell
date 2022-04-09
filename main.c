@@ -27,6 +27,7 @@ void cmd_input(char cmd[], char *params[]){
 
   for(int j=0;j<i;j++)
     params[j] = array[j];
+
   params[i] = NULL;
 }
 
