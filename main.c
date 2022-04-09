@@ -42,7 +42,6 @@ int main(void){
     printf("myshell> ");
 
     cmd_input(command,parameters);
-    // scanf("%[^\n]s",command);
 
     while ((ch = getchar()) != '\n');
 
