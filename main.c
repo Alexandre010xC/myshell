@@ -5,31 +5,29 @@
 #include <string.h>
 
 void cmd_input(char cmd[], char *params[]){
-  char line[1024],*array[100],*pch;
-  int count=0, i=0;
+  char line[1024], *array[100], *pch;
+  int count = 0, i = 0;
 
-  for(;;){
-    int c = fgetc(stdin);
+  int c;
+  while((c = fgetc(stdin) != '\n')){
     line[count++] = (char) c;
-    if(c=='\n')
-      break;
   }
 
   if(count==1)
     return;
   
-  pch = strtok(line," \n");
+  pch = strtok(line, " \n");
 
-  while(pch!=NULL){
-    array[i++]=strdup(pch);
+  while(pch != NULL){
+    array[i++] = strdup(pch);
     pch=strtok(NULL," \n");
   }
 
-  strcpy(cmd,array[0]);
+  strcpy(cmd, array[0]);
 
   for(int j=0;j<i;j++)
-    params[j]=array[j];
-  params[i]=NULL;
+    params[j] = array[j];
+  params[i] = NULL;
 }
 
 int main(void){
